@@ -1,0 +1,64 @@
+<!---Kanokwan Sakulnoi 58160337 sec 1-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+function search(){
+	var result;
+	var toSearch = document.getElementById("search").value;
+
+	//console.log(toSearch);
+	var strings = document.getElementById("text").value;
+	//console.log(strings);
+	var optCase = document.getElementsByName("option");
+	for (var i = 0; i < optCase.length; i++) {
+		if(optCase[i].checked){
+			optCase = optCase[i].value;
+			//console.log(optCase);
+		}
+		
+	}
+
+	if(optCase == "Yes"){
+		var re = new RegExp(toSearch, "g");
+		result = strings.match(re);
+		console.log(result);
+	}
+	else{
+		var re = new RegExp(toSearch, "gi");
+		result = strings.match(re);
+		console.log(result);
+	}
+
+	document.getElementById("result").innerHTML = result.length;
+
+
+
+	//document.getElementById("result").innerHTML = "Hello World!";
+
+}
+</script>
+
+<center>
+<label>Textarea:</label>
+<textarea id="text"></textarea><br>
+								
+<label>Sensitive Case : </label>
+<input type="radio" name="option" value="Yes"> Yes
+<input type="radio" name="option" value="No"> No<br>
+
+<label>Search: </label>
+<input type="text" name="search" id="search"><br>
+
+<div>
+	<button onclick="search()">Search</button>
+</div><br>
+
+<label>Result for Search: </label>
+<p id="result"></p>
+
+</center>
+
+</body>
+</html>
