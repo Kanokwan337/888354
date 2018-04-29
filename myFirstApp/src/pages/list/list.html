@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <p **ngfor="let user of arr_users, let i = index">
+    {{i+1;}}. {{user.name}}
+  </p>
+</ion-content>
